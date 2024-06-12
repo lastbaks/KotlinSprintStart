@@ -2,21 +2,18 @@ package org.example.lesson_1
 
 fun main() {
 
-    val year: Int = 1961
-    var hour: Int = 9
-    var minute: Int = 7
+    val year: String = "1961"
+    var hour: String = "09"
+    var minute: String = "07"
 
     println(year)
     println(hour)
     println(minute)
 
-    hour = 10
-    minute = 55
+    hour = "10"
+    minute = "55"
 
     println("$hour:$minute")
-    //и вариант печати по предполагаемой подсказке из задания с использованием нескольких функций print()
-    print(hour)
-    print(":")
-    print(minute)
+
 
 }
