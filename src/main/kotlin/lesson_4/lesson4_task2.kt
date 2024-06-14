@@ -9,7 +9,7 @@ fun main() {
                 "и объемом $cargoVolume литров " +
                 "соответствует категории 'Average': " +
                 "${(cargoWeight > 30) 
-                        and (cargoWeight <= 100) 
+                        && (cargoWeight <= 100) 
                         and (cargoVolume < 100)}"
     )
 
@@ -21,8 +21,8 @@ fun main() {
                 "и объемом $cargoVolume литров " +
                 "соответствует категории 'Average': " +
                 "${(cargoWeight > 30)
-                        and (cargoWeight <= 100)
-                        and (cargoVolume < 100)}"
+                        && (cargoWeight <= 100)
+                        && (cargoVolume < 100)}"
     )
 
 }
