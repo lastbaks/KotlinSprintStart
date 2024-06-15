@@ -8,10 +8,11 @@ fun main() {
         "Груз с ввесом $cargoWeight килограмм " +
                 "и объемом $cargoVolume литров " +
                 "соответствует категории 'Average': " +
-                "${(cargoWeight > 30) 
-                        && (cargoWeight <= 100) 
-                        and (cargoVolume < 100)}"
+                "${(cargoWeight > 30) && 
+                        (cargoWeight <= 100) && 
+                        (cargoVolume < 100)}"
     )
+
 
     cargoWeight = 50
     cargoVolume = 100
@@ -20,9 +21,9 @@ fun main() {
         "Груз с ввесом $cargoWeight килограмм " +
                 "и объемом $cargoVolume литров " +
                 "соответствует категории 'Average': " +
-                "${(cargoWeight > 30)
-                        && (cargoWeight <= 100)
-                        && (cargoVolume < 100)}"
+                "${(cargoWeight > 30) &&
+                        (cargoWeight <= 100) &&
+                        (cargoVolume < 100)}"
     )
 
 }
