@@ -6,7 +6,7 @@ fun main() {
     val termOne = Random.nextInt(from = 2, until = 10)
     val termTwo = Random.nextInt(from = 3, until = 10)
     println("Введите сумму чисел $termOne и $termTwo")
-    val answer = readLine()!!.toInt()
+    val answer = readln().toInt()
     val message = if (answer == termOne + termTwo) {
         "Добро пожаловать"
     } else {
