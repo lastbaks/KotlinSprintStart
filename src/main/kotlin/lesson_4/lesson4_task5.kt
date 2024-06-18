@@ -35,8 +35,8 @@ fun main() {
         println("Неверные данны. Инициируйте ввода данных снова")
     }
 
-    if (((!isDamaged) && (crewCount >= 55) && (crewCount<= 70) && (provisionCount > 50) && (isGoodWeather)) ||
-            ((crewCount == 70) && (provisionCount > 50) && (isGoodWeather))) {
+    if (((!isDamaged) && (crewCount >= MINIMAL_CREW) && (crewCount<= MAXIMAL_CREW) && (provisionCount > MINIMAL_PROVISION) && (isGoodWeather)) ||
+            ((crewCount == MAXIMAL_CREW) && (provisionCount > MINIMAL_PROVISION) && (isGoodWeather))) {
         readyToDepart = true
     }
     if(readyToDepart) {
@@ -45,3 +45,6 @@ fun main() {
         println("Условия не соблюдены, отплытие не разрешено")
     }
 }
+const val MINIMAL_CREW = 55
+const val MAXIMAL_CREW = 70
+const val MINIMAL_PROVISION = 50
