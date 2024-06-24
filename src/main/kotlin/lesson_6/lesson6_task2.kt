@@ -3,12 +3,11 @@ package org.example.lesson_6
 fun main() {
     var countOfSeconds: Int
     val message: String
-    println("Введите о чем вы хотите, чтобы я напомнил")
-    message = readln()
-    println("Введите количество секунд, через которые нужно воспроизвести напоминание")
+    println("Введите количество секунд, чтобы запустить таймер")
     countOfSeconds = readln().toInt()
+    message = "Прошло $countOfSeconds секунд"
     while (countOfSeconds > 0) {
-        println("Осталсь ${countOfSeconds--} секунд")
+        countOfSeconds--
         Thread.sleep(1000)
     }
     println(message)
