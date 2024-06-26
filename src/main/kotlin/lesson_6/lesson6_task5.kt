@@ -16,12 +16,10 @@ fun main() {
         answer = readln().toInt()
         if(answer == valueOne + valueTwo) {
             println("Добро пожаловать")
-            break
+            return
         } else {
             println("Неверно, осталось ${--counter} попыток")
-            if(counter == 0) {
-                println("Доступ запрещен")
-            }
         }
     }
+    println("Доступ запрещен")
 }
