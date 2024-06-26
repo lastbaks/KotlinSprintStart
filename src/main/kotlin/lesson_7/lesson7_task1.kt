@@ -1,20 +1,13 @@
 package org.example.lesson_7
 
+const val PASSWORD_HALF_LENGTH = 3
 fun main() {
-    val charset = ('a'..'z') + ('0'..'9')
-    val length = 6
-    val passwordOne = List(length) { charset.random() }.joinToString("")
-    println(passwordOne)
-
-
-    val passwordTwo = mutableListOf<String>()
-    var randomInt: String
-    var randomChar: String
-    for(i in 1..3) {
-        randomInt = (1..9).random().toString()
-        passwordTwo.add(randomInt)
-        randomChar = ('a'..'z').random().toString()
-        passwordTwo.add(randomChar)
+    val rndInt: IntRange = 1..9
+    val rndLetter: CharRange = 'a'..'z'
+    var password = ""
+    for(i in 1 .. PASSWORD_HALF_LENGTH) {
+        password += rndLetter.random()
+        password += rndInt.random()
     }
-    println(passwordTwo.joinToString(""))
+    println(password)
 }
