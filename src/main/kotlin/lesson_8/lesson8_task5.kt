@@ -9,5 +9,5 @@ fun main() {
         println("Введите элемент ${i + 1}")
         arrayOfIngredients[i] = readln()
     }
-    println(arrayOfIngredients.joinToString(separator = ", "))
+    println(arrayOfIngredients.joinToString())
 }
