@@ -1,13 +1,14 @@
 package org.example.lesson_9
 
 fun main() {
-    val countOfIngredients = mutableListOf(2, 50, 15)
+    val ingredients: MutableMap<String, Int> =
+        mutableMapOf("яйцо (шт)" to 2, "молоко (мл)" to 50, "сливочное масло (грамм)" to 15)
     val countOfPortions: Int
     println("Рецепт: Омлет")
     println("Какое количество порций вы хотите приготовить?")
     countOfPortions = readln().toInt()
     println("На $countOfPortions порций вам понадобится:")
-    println("Яиц - ${countOfIngredients[0] * countOfPortions} штук.")
-    println("Молоко - ${countOfIngredients[1] * countOfPortions} миллилитров.")
-    println("Сливочное масло - ${countOfIngredients[2] * countOfPortions} грамм.")
+    for ((key, value ) in ingredients) {
+        println("$key - ${value * countOfPortions}")
+    }
 }
