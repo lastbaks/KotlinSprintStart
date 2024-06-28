@@ -13,6 +13,5 @@ fun main() {
     }
     val uniqueIngredients = (listOfIngredients.distinct()).joinToString(separator = ",")
     val capitalizedString = uniqueIngredients.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-    println(listOfIngredients.joinToString(separator = ","))
     println(capitalizedString)
 }
