@@ -6,8 +6,8 @@ fun main() {
 }
 
 fun generatePassword(passLength: Int): String {
-    val randomInt: IntRange = 1..9
-    val randomLetter = listOf('!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/')
+    val randomInt = 1..9
+    val randomLetter = ' ' ..'/'
     var password = ""
     while (password.length < passLength) {
         if (password.length % 2 == 0) {
