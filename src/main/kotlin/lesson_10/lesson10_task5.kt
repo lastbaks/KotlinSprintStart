@@ -5,6 +5,7 @@ const val USER_PASSWORD = "password"
 const val ITEMS = ("соль, хлеб, молоко")
 
 fun main() {
+    println(generateToken())
     println(getItems(checkCredentials()))
 }
 
@@ -16,19 +17,7 @@ fun checkCredentials() : String?{
     if ((inputLogin != USER_LOGIN) || (inputPassword != USER_PASSWORD)) {
         return null
     } else {
-        var randomInt = (0 ..9).random()
-        var randomChar = ('a' .. 'z').random()
-        val token: String
-        val userPartOfToken: String = inputLogin + inputPassword
-        var servicePartOfToken = (randomInt).toString() + randomChar
-        while (servicePartOfToken.length < (32 - userPartOfToken.length)) {
-            randomInt = (0 ..9).random()
-            randomChar = ('a' .. 'z').random()
-            servicePartOfToken += randomInt
-            servicePartOfToken += randomChar
-        }
-        token = userPartOfToken + servicePartOfToken
-        return token
+        return generateToken()
     }
 }
 
@@ -39,4 +28,9 @@ fun getItems(credentials: String?) : String{
         val items = ITEMS
         return items
     }
+}
+
+fun generateToken(): String {
+    val randomInt = ('A'..'Z') + ('a'..'z') + ('0'..'9')
+    return (1..32).map { randomInt.random() }.joinToString("")
 }
