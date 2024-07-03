@@ -1,12 +1,10 @@
 package org.example.lesson_11
 
 class Dish(
-    val dishId: Int,
-    var dishName: String,
-    var dishImage: String,
-    val category: Category,
-    val ingredients: MutableList<Ingredient>,
-    val countOfIngredient: MutableMap<MutableList<Ingredient>, Int>,
+    val id: Int,
+    var name: String,
+    var image: String,
+    val ingredients: MutableMap<Ingredient, Int>,
     var inFavorites: Boolean = false,
 ) {
     fun addToFavorites() {
@@ -18,15 +16,15 @@ class Dish(
     }
 
     fun changeDishName() {
-        dishName = readln()
+        name = readln()
     }
 
     fun changeDishImage() {
-        dishImage = readln()
+        image = readln()
     }
 
-    fun addIngredient(ingredient: Ingredient) {
-        ingredients.add(ingredient)
+    fun addIngredient(ingredient: Ingredient, amount: Int) {
+        ingredients.put(ingredient, amount)
     }
 
     fun removeIngredient(ingredient: Ingredient) {
@@ -35,9 +33,9 @@ class Dish(
 }
 
 class Ingredient(
-    val ingredientId: Int,
-    val ingredientName: String,
-    val ingredientUnit: String,
+    val id: Int,
+    val name: String,
+    val unit: String,
 ) {
     fun addNewIngredient() {
         val ingredientName = readln()
@@ -46,9 +44,10 @@ class Ingredient(
 }
 
 class Category(
-    val categoryId: Int,
-    val categoryName: String,
-    val categoryImage: String,
+    val id: Int,
+    val name: String,
+    val image: String,
+    val dishesInCategory: MutableList<Dish>
 ) {
     fun addNewCategory() {
         val categoryName = readln()
