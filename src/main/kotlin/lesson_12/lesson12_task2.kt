@@ -3,13 +3,13 @@ package org.example.lesson_12
 class WeatherDataVersion2(
     var dayTemperature: Int,
     var nightTemperature: Int,
-    var precipitation: Boolean
+    var isRainy: Boolean
 ) {
 
     fun printWeatherInfo() {
         println("Температура днем: $dayTemperature градусов")
         println("Температура ночью: $nightTemperature градусов")
-        if (precipitation) {
+        if (isRainy) {
             println("Небольшой дождь")
         } else {
             println("Без осадков")
