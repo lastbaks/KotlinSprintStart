@@ -43,7 +43,7 @@ fun main() {
     val contact5 = ContactsVersion3(
         id = 1,
         name = "Карла Гуджино",
-        company = "Paramount",
+        company = "Columbia pictures",
         phoneNumber = 89365612482,
     )
 
@@ -54,7 +54,8 @@ fun main() {
     contactList.add(contact4)
     contactList.add(contact5)
 
-    contactList.forEach {
+    val companyNames = contactList.distinct()
+    companyNames.forEach {
         if (it.company != null) {
             println(it.company)
         }
