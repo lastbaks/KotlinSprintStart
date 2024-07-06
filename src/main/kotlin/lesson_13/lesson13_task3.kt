@@ -60,9 +60,6 @@ fun main() {
             companyNames.add(it.company!!)
         }
     }
-    val uniqueCompanyNames = setOf(companyNames)
-    uniqueCompanyNames.forEach{
-        println(it)
-    }
+    companyNames.distinct().forEach { println(it) }
 }
 
