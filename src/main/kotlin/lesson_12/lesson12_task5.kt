@@ -13,35 +13,27 @@ class WeatherDataVersion5(
     var dayTemperature = _dayTemperature - deltaFahrenheitCelsius
     var nightTemperature = _nightTemperature - deltaFahrenheitCelsius
     var isRainy = _isRainy
-
-    companion object {
-        val days = mutableListOf<WeatherDataVersion5>()
-        fun createDays(count: Int, month: String): List<WeatherDataVersion5> {
-            for (i in 1..count) {
-                val dayTemperature = Random.nextInt(from = 293, until = 306)
-                val nightTemperature = Random.nextInt(from = 282, until = 299)
-                val isRainy = Random.nextBoolean()
-                days.add(WeatherDataVersion5("$i $month", dayTemperature, nightTemperature, isRainy))
-            }
-            return days
-        }
-    }
 }
 
 fun main() {
-    val dayTemperatures = mutableListOf<Int>()
-    val nightTemperatures = mutableListOf<Int>()
-    var rainyDaysCount = 0
-    val days = WeatherDataVersion5.createDays(30, "сентябрь")
-    days.forEach {
-        dayTemperatures.add(it.dayTemperature)
-        nightTemperatures.add(it.nightTemperature)
-        if (it.isRainy == true) {
-            rainyDaysCount++
-        }
-    }
-    println("Средняя дневная температура = ${dayTemperatures.average().toInt()} градусов цельсия.")
-    println("Средняя ночная температура = ${nightTemperatures.average().toInt()} градусов цельсия.")
-    println("Количество дней с осадками = $rainyDaysCount")
+    val listOfWeatherData = createDays(30, "сентябрь")
+    val averageDayTemperature = (listOfWeatherData.map {it.dayTemperature}).average().toInt()
+    val averageNightTemperature = (listOfWeatherData.map { it.nightTemperature }).average().toInt()
+    val rainyDaysCount = listOfWeatherData.count { it.isRainy }
 
+    println("Средняя дневная температура = $averageDayTemperature градусов цельсия.")
+    println("Средняя ночная температура = $averageNightTemperature градусов цельсия.")
+    println("Количество дней с осадками = $rainyDaysCount")
+}
+
+
+fun createDays(count: Int, month: String): List<WeatherDataVersion5> {
+    val weatherData = mutableListOf<WeatherDataVersion5>()
+    for (i in 1..count) {
+        val dayTemperature = Random.nextInt(from = 293, until = 306)
+        val nightTemperature = Random.nextInt(from = 282, until = 299)
+        val isRainy = Random.nextBoolean()
+        weatherData.add(WeatherDataVersion5("$i $month", dayTemperature, nightTemperature, isRainy))
+    }
+    return weatherData
 }
