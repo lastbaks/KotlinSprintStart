@@ -54,18 +54,15 @@ fun main() {
     contactList.add(contact4)
     contactList.add(contact5)
 
-    val companyNames = contactList.distinct()
-    companyNames.forEach {
+    val companyNames = mutableListOf<String>()
+    contactList.forEach {
         if (it.company != null) {
-            println(it.company)
+            companyNames.add(it.company!!)
         }
     }
-
-    val testList = mutableListOf("Columbia pictures", "Columbia pictures", "MGM")
-    println(testList)
-    val testDistinctList = testList.distinct()
-    println(testDistinctList)
-    val testSet = testList.toSet()
-    println(testSet)
+    val uniqueCompanyNames = setOf(companyNames)
+    uniqueCompanyNames.forEach{
+        println(it)
+    }
 }
 
