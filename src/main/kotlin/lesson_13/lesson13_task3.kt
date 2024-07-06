@@ -60,5 +60,12 @@ fun main() {
             println(it.company)
         }
     }
+
+    val testList = mutableListOf("Columbia pictures", "Columbia pictures", "MGM")
+    println(testList)
+    val testDistinctList = testList.distinct()
+    println(testDistinctList)
+    val testSet = testList.toSet()
+    println(testSet)
 }
 
