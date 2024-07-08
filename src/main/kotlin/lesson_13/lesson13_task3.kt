@@ -54,12 +54,7 @@ fun main() {
     contactList.add(contact4)
     contactList.add(contact5)
 
-    val companyNames = mutableListOf<String>()
-    contactList.forEach {
-        if (it.company != null) {
-            companyNames.add(it.company!!)
-        }
-    }
-    companyNames.distinct().forEach { println(it) }
+    val companyNames = contactList.mapNotNull { it.company }.distinct()
+    companyNames.forEach { println(it) }
 }
 
