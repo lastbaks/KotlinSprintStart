@@ -23,5 +23,4 @@ fun main() {
     val simphonyOfSeas = LinerShip()
     val prelude = CargoShip()
     val arctic = IcebreakerShip()
-    println(arctic.maxSpeed)
 }
