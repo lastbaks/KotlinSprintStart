@@ -21,7 +21,7 @@ fun main() {
     try {
         addContact()
     } catch (e: NumberFormatException) {
-        println(e)
+        println(e::class.simpleName)
     }
 }
 
