@@ -1,11 +1,11 @@
 package org.example.lesson_13
 
 class ContactsVersion4(
-    name: String,
-    company: String? = null,
-    phoneNumber: Long?
+    val name: String,
+    val company: String? = null,
+    val phoneNumber: Long?
 ) {
-    init {
+    fun printContactInformation() {
         println("Имя: $name")
         println("Номер телефона: $phoneNumber")
         println("Компания: ${company ?: "не указано"}")
@@ -18,22 +18,24 @@ class ContactsVersion4(
 }
 
 fun main() {
-    addContact()
+    val contacts = mutableListOf<ContactsVersion4>()
+    contacts.add(addContact())
+    contacts.add(addContact())
+    contacts.add(addContact())
+    contacts.forEach { it.printContactInformation() }
 }
 
-fun addContact() {
+fun addContact() : ContactsVersion4{
     println("Добавление новой записи в телефонную книгу.")
     println("Введите имя:")
     val _name = readln()
     println("Введите название компании")
     val _company = readLine()
     println("Введите номер телефона")
-    val _phoneNumber = readln().toLongOrNull()
-    if (_phoneNumber == null) {
+    var _phoneNumber = readln().toLongOrNull()
+    while (_phoneNumber == null) {
         println("Не введен номер телефона")
-    } else {
-        val contact1 = ContactsVersion4(_name, _company, _phoneNumber)
+        _phoneNumber = readln().toLongOrNull()
     }
-
-
+    return ContactsVersion4(_name, _company, _phoneNumber)
 }
