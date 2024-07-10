@@ -8,7 +8,6 @@ class ContactsVersion4(
     fun printContactInformation() {
         println("Имя: $name")
         println("Номер телефона: $phoneNumber")
-//        println("Компания: ${company ?: "не указано"}")
         if ((company == "") || (company == null)) {
             println(" Компания: Не указано.")
         } else {
