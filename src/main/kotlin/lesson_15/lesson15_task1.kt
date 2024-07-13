@@ -4,7 +4,7 @@ abstract class Fish :  Swimming {
 
 }
 
-abstract class Bird : FLying {
+abstract class Bird : FLying, Swimming {
 
 }
 
@@ -23,6 +23,10 @@ class Duck() : Bird() {
     override fun prepareToLanding() {
         println("Утка снижается и по касательной садится на воду")
     }
+
+    override fun beginSwimming() {
+        println("Утка плывет")
+    }
 }
 
 class Gull() : Bird() {
@@ -32,6 +36,10 @@ class Gull() : Bird() {
 
     override fun prepareToLanding() {
         println("Чайка снижается, и садится")
+    }
+
+    override fun beginSwimming() {
+        println("чайка плывет")
     }
 
 }
@@ -57,6 +65,8 @@ fun main() {
     carp.beginSwimming()
     duck.prepareToFly()
     duck.prepareToLanding()
+    duck.beginSwimming()
     gull.prepareToFly()
     gull.prepareToLanding()
+    gull.beginSwimming()
 }
