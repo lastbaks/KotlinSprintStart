@@ -5,7 +5,6 @@ interface FindComponents {
         val findItem = product.components.find { it.productName == component }
         println("Выполняю поиск компонента для инструмента ${product.productName}...")
         println("${findItem?.productName}, ${findItem?.countInStock} штук")
-
     }
 }
 
