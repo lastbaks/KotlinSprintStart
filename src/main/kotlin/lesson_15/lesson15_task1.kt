@@ -1,45 +1,35 @@
 package org.example.lesson_15
 
-abstract class Fish :  Swimming {
 
-}
 
-abstract class Bird : FLying, Swimming {
 
-}
 
-class  Carp : Fish() {
+
+class  Carp():Swimming  {
     override fun beginSwimming() {
-        println("Карп плывет")
+        println("Кари плавает с помощью плавников, скользя в воде. Чешуя помогает увеличивать скорость")
     }
+
 }
 
-class Duck() : Bird() {
-    override fun prepareToFly() {
-        println("Утка выбирает направление, в котором есть место для разгона, " +
-                "взмахами крыльев приподниматся над поверностью и начинает разгон, чтобы набрать подъемную силу")
-    }
-
-    override fun prepareToLanding() {
-        println("Утка снижается и по касательной садится на воду")
+class Duck() : FLying, Swimming {
+    override fun beginFlying() {
+        println("У утки тяжелое тело, длинная шея, поэтому для полета она обычно набирает скорость и взлетает в основном с воды")
     }
 
     override fun beginSwimming() {
-        println("Утка плывет")
+        println("Утка максимально приспособлена к плаванию. благодаря строению тела может находиться в ледяной воде неограниченно долго и плавать даже во сне.")
     }
+
 }
 
-class Gull() : Bird() {
-    override fun prepareToFly() {
-        println("Чайка взмахивает крыльями и отрывается от поверхности")
-    }
-
-    override fun prepareToLanding() {
-        println("Чайка снижается, и садится")
+class Gull : FLying, Swimming {
+    override fun beginFlying() {
+        println("Чайка имеет легкое тело, большие крылья, что позволяет легко маневрировать в полете и менять траекторию для лова рыбы")
     }
 
     override fun beginSwimming() {
-        println("чайка плывет")
+        println("Чайка может как держаться на воде, так и нкрыть")
     }
 
 }
@@ -52,21 +42,20 @@ interface Swimming {
 
 interface FLying {
 
-    fun prepareToFly()
-    fun prepareToLanding()
+    fun beginFlying()
 
 }
 
 fun main() {
-    val carp = Carp()
-    val duck = Duck()
-    val gull = Gull()
+    val animal1 = Duck()
+    val animal2 = Gull()
+    val animal3 = Carp()
 
-    carp.beginSwimming()
-    duck.prepareToFly()
-    duck.prepareToLanding()
-    duck.beginSwimming()
-    gull.prepareToFly()
-    gull.prepareToLanding()
-    gull.beginSwimming()
+    animal1.beginFlying()
+    animal1.beginSwimming()
+
+    animal2.beginFlying()
+    animal2.beginSwimming()
+
+    animal3.beginSwimming()
 }
