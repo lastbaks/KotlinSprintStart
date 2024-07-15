@@ -13,7 +13,15 @@ abstract class ForumMember(
     }
 }
 
-interface AdminRoots {
+class ForumUser(
+    memberId: Int,
+    memberName: String,
+) : ForumMember(memberId, memberName,)
+
+class ForumAdmin(
+    memberId: Int,
+    memberName: String,
+) : ForumMember(memberId, memberName,) {
 
     fun deleteMessage() {
         println("Удаление сообщения")
@@ -22,20 +30,6 @@ interface AdminRoots {
     fun deleteMember() {
         println("Удаление пользователя")
     }
-
-}
-
-class ForumUser(
-    memberId: Int,
-    memberName: String,
-
-    ) : ForumMember(memberId, memberName)
-
-class ForumAdmin(
-    memberId: Int,
-    memberName: String
-) : ForumMember(memberId, memberName), AdminRoots {
-
 }
 
 fun main() {
