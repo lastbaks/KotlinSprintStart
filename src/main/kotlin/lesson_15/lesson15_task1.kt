@@ -1,10 +1,5 @@
 package org.example.lesson_15
 
-
-
-
-
-
 class  Carp():Swimming  {
     override fun beginSwimming() {
         println("Кари плавает с помощью плавников, скользя в воде. Чешуя помогает увеличивать скорость")
