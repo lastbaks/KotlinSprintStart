@@ -62,7 +62,7 @@ interface CargoTransportation {
             println("Текущая загруженность транспорта: $currentCargoWeight")
             println("Еще можно загрузить: ${maxCargoWeight - currentCargoWeight} килограмм.")
         } else {
-            println("Грузовик полон, добавление груза невозможно")
+            println("Грузовик полон, добавление груза запрещено")
         }
     }
 
