@@ -10,13 +10,18 @@ interface Movable {
     var isEngineStarted: Boolean
 
     fun startEngine() {
-        isEngineStarted = true
-        println("Двигатель включен")
+        if (isEngineStarted == false) {
+            isEngineStarted = true
+            println("Двигатель включен")
+        }
     }
 
     fun stopEngine() {
-        isEngineStarted = false
-        println("Двигатель выключен")
+        if(isEngineStarted == true) {
+            isEngineStarted = false
+            println("Двигатель выключен")
+        }
+
     }
 
     fun startMoving() {
@@ -43,10 +48,11 @@ interface PassengersTransportation {
         }
     }
 
-    fun unboardingPassengers(terminal: Terminal) {
+    fun unboardingPassengers(terminalName: Terminal) {
+
         println("Производится высадка пассажиров")
         println("Доставлено $currentPassengersCount пассажиров")
-        terminal.countArrivedPassengers += currentPassengersCount
+        terminalName.countArrivedPassengers += currentPassengersCount
         currentPassengersCount = 0
     }
 }
@@ -54,10 +60,10 @@ interface PassengersTransportation {
 interface CargoTransportation {
     val maxCargoWeight: Int
     var currentCargoWeight: Int
-    fun loadCargo(carType: String, carName: String) {
-        val oneCargoUnit = 250
+    fun loadCargo(carType: String, carName: String, weight: Int) {
+
         if (currentCargoWeight < maxCargoWeight) {
-            currentCargoWeight += oneCargoUnit
+            currentCargoWeight += weight
             println("$carType $carName: Добавлен один ящик груза")
             println("Текущая загруженность транспорта: $currentCargoWeight")
             println("Еще можно загрузить: ${maxCargoWeight - currentCargoWeight} килограмм.")
@@ -105,28 +111,31 @@ class Terminal(
 fun main() {
     val taxi = Taxi(type = "такси", "Сокол", isEngineStarted = false)
     val truck = Truck(type = "грузовик", name = "Муравей", isEngineStarted = false)
-    val terminal = Terminal()
+    val moscow = Terminal()
+    val volgograd = Terminal()
     while (taxi.currentPassengersCount < taxi.maxPassengersCount) {
         taxi.boardingPassengers(taxi.type, taxi.name)
     }
     taxi.startEngine()
     taxi.startMoving()
-    taxi.unboardingPassengers(terminal)
+    taxi.unboardingPassengers(moscow)
 
-    while (truck.currentCargoWeight < truck.maxCargoWeight) {
-        truck.loadCargo(truck.type, truck.name)
-    }
+    truck.loadCargo(truck.type, truck.name, 2000)
     truck.boardingPassengers(truck.type, truck.name)
     truck.startMoving()
     truck.startEngine()
     truck.startMoving()
-    truck.unloadCargo(terminal)
-    truck.unboardingPassengers(terminal)
-    terminal.printInformation()
+    truck.unloadCargo(moscow)
+    truck.unboardingPassengers(moscow)
+    moscow.printInformation()
 
     taxi.boardingPassengers(taxi.type, taxi.name)
     taxi.boardingPassengers(taxi.type, taxi.name)
     taxi.startMoving()
-    taxi.unboardingPassengers(terminal)
-    terminal.printInformation()
+    taxi.unboardingPassengers(moscow)
+    moscow.printInformation()
+
+    taxi.boardingPassengers("Такси", "Сокол")
+    taxi.unboardingPassengers(volgograd)
+    volgograd.printInformation()
 }
