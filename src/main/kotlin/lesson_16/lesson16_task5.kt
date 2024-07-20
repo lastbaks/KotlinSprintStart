@@ -34,10 +34,10 @@ const val HEALTH_POTION = 20
 
 fun main() {
     val player1 = Player("Hetomukira", 10, 100, false)
-    player1.takeDamage(70)
+    player1.takeDamage(40)
     player1.takeHealthPotion()
     player1.takeDamage(50)
     player1.takeHealthPotion()
-    player1.takeDamage(80)
+    player1.takeDamage(60)
     player1.takeHealthPotion()
 }
