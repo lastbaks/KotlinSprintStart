@@ -1,7 +1,8 @@
 package org.example.lesson_16
 
 const val HEALTH_POTION = 20
-    class Player(
+
+class Player(
     val name: String,
     private var damage: Int,
     private var health: Int,
@@ -17,7 +18,7 @@ const val HEALTH_POTION = 20
     }
 
     fun takeHealthPotion() {
-        if(!isDead) {
+        if (!isDead) {
             health += HEALTH_POTION
             println("$name выпил лекарство.  Осталось $health единиц жизни")
         } else {
