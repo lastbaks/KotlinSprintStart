@@ -1,36 +1,36 @@
 package org.example.lesson_18
 
 abstract class Dice(
-    val sideCount: IntRange,
+    val sideCount: Int,
 ) {
     abstract fun getRandom(): Int
 }
 
-class FourSideDice(sideCount: IntRange) : Dice(sideCount) {
+class FourSideDice(sideCount: Int = 4) : Dice(sideCount) {
     override fun getRandom(): Int {
-        val numbers = sideCount
+        val numbers = (1..sideCount)
         return numbers.random()
     }
 }
 
-class SixSideDice(sideCount: IntRange) : Dice(sideCount) {
+class SixSideDice(sideCount: Int = 6) : Dice(sideCount) {
     override fun getRandom(): Int {
-        val numbers = sideCount
+        val numbers = (1..sideCount)
         return numbers.random()
     }
 }
 
-class EightSideDice(sideCount: IntRange) : Dice(sideCount) {
+class EightSideDice(sideCount: Int = 8) : Dice(sideCount) {
     override fun getRandom(): Int {
-        val numbers = sideCount
+        val numbers = (1..sideCount)
         return numbers.random()
     }
 }
 
 fun main() {
-    val forSideDice = FourSideDice(1..4)
-    val sixSideDice = SixSideDice(1..6)
-    val eightSideDice = EightSideDice(1..8)
+    val forSideDice = FourSideDice()
+    val sixSideDice = SixSideDice()
+    val eightSideDice = EightSideDice()
 
     val listOfDices = listOf(forSideDice, sixSideDice, eightSideDice)
     showAllDices(listOfDices)
