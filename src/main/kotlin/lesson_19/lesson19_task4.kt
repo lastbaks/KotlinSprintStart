@@ -4,7 +4,6 @@ enum class Ammo(val baseDamage: Int?, val label: String) {
     BLUE_BULLETS(5, "Базовый калибр"),
     GREEN_BULLETS(10, "Бронебойный"),
     RED_BULLETS(20, "Кумулятивный"),
-//    NO_BULLETS(null, "заряд отсутствует"),
 }
 
 class Tank(
