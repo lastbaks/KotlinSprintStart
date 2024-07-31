@@ -17,9 +17,4 @@ fun main() {
     println(player1.isHealthy())
 }
 
-fun Player_21_3.isHealthy() : Boolean {
-    if (currentHealth == maxHealth){
-        return true
-    }
-    return false
-}
+fun Player_21_3.isHealthy() = currentHealth == maxHealth
