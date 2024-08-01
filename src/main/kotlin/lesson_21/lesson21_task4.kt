@@ -3,21 +3,14 @@ package org.example.lesson_21
 import java.io.File
 
 fun main() {
-    val fileName = "example.txt"
-    val text1 = "Текст 1"
-    val text2 = "Текст 2"
-    val text3 = "Текст 3"
-
-    text1.addTextToStartOfFile(fileName)
-    text2.addTextToStartOfFile(fileName)
-    text3.addTextToStartOfFile(fileName)
-
+    val textFile = File("example.txt")
+    textFile.addTextToStartOfFile("текст 1")
+    textFile.addTextToStartOfFile("текст 2")
+    textFile.addTextToStartOfFile("текст 3")
 }
 
-fun String.addTextToStartOfFile(fileName: String) {
-    val file = File(fileName)
-    val currentText = if (file.exists()) file.readText() else ""
-    file.writeText("${this.lowercase()}, $currentText")
-    println(file.readText())
+fun File.addTextToStartOfFile(newText: String) {
+    val currentText = if (exists()) readText() else ""
+    writeText("${newText.lowercase()}, $currentText")
+    println(readText())
 }
-
