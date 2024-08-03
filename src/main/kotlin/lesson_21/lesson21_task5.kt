@@ -1,6 +1,6 @@
 package org.example.lesson_21
 
-class Player3(
+class Map(
     val name: String,
     var skills: MutableMap<String, Int> = mutableMapOf(
         "meleeWeapon" to 5,
@@ -9,10 +9,10 @@ class Player3(
     )
 )
 
-fun Player3.maxCategory() = skills.maxByOrNull { it.value }?.key
+fun Map.maxCategory() = skills.maxByOrNull { it.value }?.key
 
 fun main() {
-    val player1 = Player3("Rudolf")
+    val player1 = Map("Rudolf")
 
     println(player1.maxCategory())
     player1.skills["hunting"] = 6
