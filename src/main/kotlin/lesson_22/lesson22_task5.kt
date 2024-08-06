@@ -1,0 +1,18 @@
+package org.example.lesson_22
+
+data class GalacticGuide(
+    val nameofPlaceOrEvent: String,
+    val descriptionOrPlaceOrEvent: String,
+    val dateOfPlaceOrEvent : String,
+    val distanceFromEarthInLightYears: Int,
+)
+
+fun main() {
+    val place1 = GalacticGuide("Alpha Centauri",
+        "Ближайшая звезда от земного солнца",
+        "01.24.2234",
+        4 ,
+    )
+    val(name, description, date, distance) = place1
+    println("$name, $description. Расстояние от земли $distance световых года. Дата внесения в список звезд - транспортиров: $date ")
+}
