@@ -14,7 +14,6 @@ fun main() {
         4 ,
     )
 
-//    val(name, description, date, distance) = place1
     val name = place1.component1()
     val description = place1.component2()
     val date = place1.component3()
