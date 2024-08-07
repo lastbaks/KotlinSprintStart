@@ -13,6 +13,11 @@ fun main() {
         "01.24.2234",
         4 ,
     )
-    val(name, description, date, distance) = place1
+
+//    val(name, description, date, distance) = place1
+    val name = place1.component1()
+    val description = place1.component2()
+    val date = place1.component3()
+    val distance = place1.component4()
     println("$name, $description. Расстояние от земли $distance световых года. Дата внесения в список звезд - транспортиров: $date ")
 }
